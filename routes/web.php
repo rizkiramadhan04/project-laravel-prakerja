@@ -21,6 +21,7 @@ Route::get('hello', function() {
     return 'ini laravel saya!';
 });
 
+// angka
 Route::get('tampilan/{nilai1}', function($nilai1) {
     return 'nilai saya adalah : ' . $nilai1;
 });
@@ -41,3 +42,22 @@ Route::get('bagi/{nilai1}/{nilai2}', function($nilai1, $nilai2) {
     return 'nilai pembagian adalah : ' . $nilai1 / $nilai2;
 });
 
+// text
+
+Route::get('makanan/{nama_makanan}', function($nama_makanan){
+    return 'Saya suka sekali memakan ' . $nama_makanan;
+});
+
+// data array
+
+Route::get('bahasa-pemrograman/{data_array}', function($data_array) {
+    $dataArray = json_decode($data_array, true); // mengubah data yg dikirimkan dari url yg berbentuk json menjadi array
+    
+    if (is_array($dataArray)) { // pengecekan apakah variable $dataArray ini merupaka jenis data arrau atau bukan
+        foreach ($dataArray as $key => $value) { // proses perulangan
+            echo 'Bahasa pemrograman yaitu: ' . $value . '<br>';
+        }
+    } else {
+        return 'Format masih belum berubah';
+    }
+});
