@@ -61,3 +61,9 @@ Route::get('bahasa-pemrograman/{data_array}', function($data_array) {
         return 'Format masih belum berubah';
     }
 });
+
+// blade view
+
+Route::get('coba', function() {
+    return view('coba');
+});
