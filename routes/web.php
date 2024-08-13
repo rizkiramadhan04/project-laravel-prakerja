@@ -52,7 +52,7 @@ Route::get('makanan/{nama_makanan}', function($nama_makanan){
 
 Route::get('bahasa-pemrograman/{data_array}', function($data_array) {
     $dataArray = json_decode($data_array, true); // mengubah data yg dikirimkan dari url yg berbentuk json menjadi array
-    
+
     if (is_array($dataArray)) { // pengecekan apakah variable $dataArray ini merupaka jenis data arrau atau bukan
         foreach ($dataArray as $key => $value) { // proses perulangan
             echo 'Bahasa pemrograman yaitu: ' . $value . '<br>';
@@ -78,4 +78,19 @@ Route::get('table-sb-admin', function() {
     $data_array = ['meja', 'kursi', 'pensil', 'pintu'];
 
     return view('table', compact('data_array'));
+});
+
+// route TPM sesi 2
+
+Route::get('laravel-news', function() {
+    return view('laravel-news.index');
+});
+
+//login - register
+Route::get('login', function() {
+    return view('login-register.login');
+});
+
+Route::get('register', function() {
+    return view('login-register.register');
 });
