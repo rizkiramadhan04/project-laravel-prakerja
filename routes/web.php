@@ -67,3 +67,15 @@ Route::get('bahasa-pemrograman/{data_array}', function($data_array) {
 Route::get('coba', function() {
     return view('coba');
 });
+
+// sb admin
+
+Route::get('template-sb-admin', function() {
+    return view('template');
+});
+
+Route::get('table-sb-admin', function() {
+    $data_array = ['meja', 'kursi', 'pensil', 'pintu'];
+
+    return view('table', compact('data_array'));
+});
