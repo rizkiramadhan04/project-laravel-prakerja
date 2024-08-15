@@ -16,5 +16,9 @@ class Siswa extends Model
     // protected $fillable = [
     //     'nis', 'nama', 'alamat'
     // ];
+
+    public function sekolah() {
+        return $this->belongsTo(Sekolah::class);
+    }
     
 }

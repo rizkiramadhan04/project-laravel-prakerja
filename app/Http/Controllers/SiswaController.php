@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sekolah;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,9 @@ class SiswaController extends Controller
     public function index()
     {
         $data = Siswa::all();
+        $sekolah = Sekolah::all();
 
-        return view('tampil', compact('data'));
+        return view('tampil', compact('data', 'sekolah'));
         // dd($data);
         // echo 'test';
     }
@@ -24,7 +26,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('tambah');
+        $sekolah = Sekolah::all();
+        return view('tambah', compact('sekolah'));
     }
 
     /**
@@ -36,6 +39,7 @@ class SiswaController extends Controller
             'nis' => 'required|integer',
             'nama' => 'required',
             'alamat' => 'required|string',
+            'sekolah_id' => 'required'
         ]);
 
         Siswa::create($validator);
@@ -56,8 +60,9 @@ class SiswaController extends Controller
     public function edit(string $id)
     {
         $data = Siswa::find($id);
-        
-        return view('edit', compact('data'));
+        $sekolah = Sekolah::all();
+
+        return view('edit', compact('data', 'sekolah'));
     }
 
     /**
@@ -69,6 +74,7 @@ class SiswaController extends Controller
             'nis' => 'required|integer',
             'nama' => 'required',
             'alamat' => 'required|string',
+            'sekolah_id' => 'required',
         ]);
         Siswa::find($id)->update($validator);
         return redirect('siswa')->with('success', 'Data berhasil diubah');

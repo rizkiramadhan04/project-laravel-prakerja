@@ -17,6 +17,16 @@
             <input type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" value="{{ $data->alamat }}">
         </div>
 
+        <div class="mb-3">
+            <label for="exampleInputSekolah" class="form-label">Sekolah</label>
+            <select type="text" name="sekolah_id" class="form-control @error('sekolah_id') is-invalid @enderror" id="exampleInputSekolah">
+              <option value="">-- choose sekolah --</option>
+                @foreach ($sekolah as $item)
+                  <option value="{{ $item->id }}" @if ($item->id == $data->sekolah_id) selected @endif>{{ $item->nama_sekolah }}</option>
+                @endforeach
+            </select>
+          </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection

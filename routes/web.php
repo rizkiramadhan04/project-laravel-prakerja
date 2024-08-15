@@ -101,9 +101,13 @@ Route::get('register', function() {
 
 // Route::get('siswa', [SiswaController::class, 'index']);
 
-Route::resource('siswa', SiswaController::class);
+Route::resource('siswa', SiswaController::class)->middleware(['auth', 'admin']);
 
 // Tugas Prakter Mandiri
-Route::resource('user', UserController::class);
-Route::resource('post', PostController::class);
-Route::resource('comment', CommentController::class);
+Route::resource('user', UserController::class)->middleware('auth');
+Route::resource('post', PostController::class)->middleware('auth');
+Route::resource('comment', CommentController::class)->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

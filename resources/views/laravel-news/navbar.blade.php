@@ -14,15 +14,15 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route('comment.index') }}">Comments</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-            Menu Dropdown
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+            Logout
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Menu 1</a>
-            <a class="dropdown-item" href="#">Menu 2</a>
-            <a class="dropdown-item" href="#">Menu 3</a>
-          </div>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
         </li>
       </ul>
     </div>
