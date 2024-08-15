@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Siswa;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
-class SiswaController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Siswa::all();
+        $data = Post::all();
 
-        return view('tampil', compact('data'));
-        // dd($data);
-        // echo 'test';
+        return view('laravel-news.post.tampil', compact('data'));
     }
 
     /**
@@ -24,7 +22,7 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('tambah');
+        return view('laravel-news.post.tambah');
     }
 
     /**
@@ -33,13 +31,12 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         $validator = $request->validate([
-            'nis' => 'required|integer',
-            'nama' => 'required',
-            'alamat' => 'required|string',
+            'title' => 'required',
+            'content' => 'required',
         ]);
 
-        Siswa::create($validator);
-        return redirect('siswa')->with('success', 'Data Berhasil diinput!');
+        Post::create($validator);
+        return redirect('post')->with('success', 'Data Berhasil diinput!');
     }
 
     /**
@@ -55,9 +52,9 @@ class SiswaController extends Controller
      */
     public function edit(string $id)
     {
-        $data = Siswa::find($id);
+        $data = Post::find($id);
         
-        return view('edit', compact('data'));
+        return view('laravel-news.post.edit', compact('data'));
     }
 
     /**
@@ -66,12 +63,11 @@ class SiswaController extends Controller
     public function update(Request $request, string $id)
     {
         $validator = $request->validate([
-            'nis' => 'required|integer',
-            'nama' => 'required',
-            'alamat' => 'required|string',
+            'title' => 'required',
+            'content' => 'required',
         ]);
-        Siswa::find($id)->update($validator);
-        return redirect('siswa')->with('success', 'Data berhasil diubah');
+        Post::find($id)->update($validator);
+        return redirect('post')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -79,7 +75,7 @@ class SiswaController extends Controller
      */
     public function destroy(string $id)
     {
-        Siswa::find($id)->delete();
-        return redirect('siswa')->with('success', 'Data berhasil dihapus');
+        Post::find($id)->delete();
+        return redirect('post')->with('success', 'Data berhasil dihapus');
     }
 }

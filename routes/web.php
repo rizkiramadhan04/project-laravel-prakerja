@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -99,3 +102,8 @@ Route::get('register', function() {
 // Route::get('siswa', [SiswaController::class, 'index']);
 
 Route::resource('siswa', SiswaController::class);
+
+// Tugas Prakter Mandiri
+Route::resource('user', UserController::class);
+Route::resource('post', PostController::class);
+Route::resource('comment', CommentController::class);

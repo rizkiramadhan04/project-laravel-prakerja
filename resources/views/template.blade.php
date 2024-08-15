@@ -364,7 +364,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                    @include('flash_message')
                     @yield('main')
 
                 </div>
