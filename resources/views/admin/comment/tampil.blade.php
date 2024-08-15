@@ -1,5 +1,5 @@
-@extends('laravel-news.index')
-@section('content')
+@extends('template')
+@section('main')
 <h1>Ini halaman Comment</h1>
 <a href="{{ route('comment.create') }}" class="btn btn-primary">Tambah Data</a>
 <div class="table-responsive">

@@ -8,8 +8,8 @@
             <label for="exampleInputName" class="form-label">Nama</label>
             <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ $data->nama }}" id="exampleInputName">
           </div>
-      
-      
+
+
           <div class="mb-3">
             <label for="exampleInputKomentar" class="form-label">Komentar</label>
             <input type="text" name="komentar" class="form-control @error('komentar') is-invalid @enderror" value="{{ $data->komentar }}" id="exampleInputKomentar">

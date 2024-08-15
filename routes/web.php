@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('hello', function() {
     return 'ini laravel saya!';
@@ -101,13 +101,13 @@ Route::get('register', function() {
 
 // Route::get('siswa', [SiswaController::class, 'index']);
 
+// Tugas Prakter Mandiri Sesi 4
 Route::resource('siswa', SiswaController::class)->middleware(['auth', 'admin']);
 
-// Tugas Prakter Mandiri
 Route::resource('user', UserController::class)->middleware('auth');
 Route::resource('post', PostController::class)->middleware('auth');
 Route::resource('comment', CommentController::class)->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard')->middleware(['auth', 'admin']);

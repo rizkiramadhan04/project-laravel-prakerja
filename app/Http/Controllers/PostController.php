@@ -14,7 +14,7 @@ class PostController extends Controller
     {
         $data = Post::all();
 
-        return view('laravel-news.post.tampil', compact('data'));
+        return view('admin.post.tampil', compact('data'));
     }
 
     /**
@@ -22,7 +22,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('laravel-news.post.tambah');
+        return view('admin.post.tambah');
     }
 
     /**
@@ -53,7 +53,7 @@ class PostController extends Controller
     public function edit(string $id)
     {
         $data = Post::find($id);
-        
+
         return view('laravel-news.post.edit', compact('data'));
     }
 

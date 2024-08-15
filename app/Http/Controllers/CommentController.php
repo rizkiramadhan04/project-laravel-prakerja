@@ -14,7 +14,7 @@ class CommentController extends Controller
     {
         $data = Comment::all();
 
-        return view('laravel-news.comment.tampil', compact('data'));
+        return view('admin.comment.tampil', compact('data'));
     }
 
     /**
@@ -22,7 +22,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        return view('laravel-news.comment.tambah');
+        return view('admin.comment.tambah');
     }
 
     /**
@@ -53,7 +53,7 @@ class CommentController extends Controller
     public function edit(string $id)
     {
         $data = Comment::find($id);
-        
+
         return view('laravel-news.comment.edit', compact('data'));
     }
 

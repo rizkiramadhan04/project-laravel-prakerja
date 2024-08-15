@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $data = User::all();
 
-        return view('laravel-news.users.tampil', compact('data'));
+        return view('admin.users.tampil', compact('data'));
     }
 
     /**
@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('laravel-news.users.tambah');
+        return view('admin.users.tambah');
     }
 
     /**
@@ -60,7 +60,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $data = User::find($id);
-        
+
         return view('laravel-news.users.edit', compact('data'));
     }
 
